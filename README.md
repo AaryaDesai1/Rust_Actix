@@ -3,7 +3,10 @@ Containerize a Rust Actix Web Service
 
 ### Objective 
 The objective of this project is to containerize a Rust Actix Web Service using Docker. This mini-project will be a good first step in trying to understand how to containerize a Rust application.
-**Note:** Rust automatically containerizes the application when it is built. However, this project will be using Docker to containerize the application for learning purposes. 
+
+
+### Why are we containerizing the Rust Actix Web Service?
+We've had a few discussions about why containerization is necessary for Rust that automatically creates binaries. The main reason is that the binaries created by Rust are not portable. This means that if you create a binary on your local machine, you cannot run it on another machine with a different operating system. This is because the binary is compiled for a specific operating system and architecture. This is where containerization comes in. Containerization allows you to package your application and all its dependencies into a single image that can be run on any machine. This is why we are containerizing the Rust Actix Web Service. 
 
 ## Setting up the Rust Actix Web Service 
 1. Create a new rust binary-based project using the following command:
@@ -82,6 +85,8 @@ docker build -t <USERNAME>/your-image-name .
 [Replace your-image-name with a suitable name for your Docker image.]
 3. Run your Docker container locally using the following command:
 ```
-docker run -p 8080:8080 your-image-name
+docker run -p 8080:8080 <USERNAME>/your-image-name
 ```
 4. Check that the application is running by visiting `http://127.0.0.1:8080/` in your web browser. You should see the message "Hello world!" displayed. 
+
+### Conclusion
