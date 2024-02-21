@@ -10,10 +10,7 @@ The objective of this project is to containerize a Rust Actix Web Service using 
 ```bash
 cargo new rust_actix
 ```
-Change directory into the newly created project:
-```bash
-cd rust_actix
-```
+**IMPORTANT** Move all the contents of the `rust_actix` directory to the root of the project directory. This is because the Dockerfile will be looking for the `Cargo.toml` file in the root of the project directory. If you **DO NOT** do this, you will get an error when you try to build the Docker image, specifically for the `COPY` command in the Dockerfile.
 2. Add the following dependencies to the `Cargo.toml` file:
 ```toml
 [dependencies]
@@ -71,6 +68,20 @@ cargo run
 <img width="1683" alt="image" src="https://github.com/AaryaDesai1/Rust_Actix/assets/143753050/ff8f06a4-de6a-4669-96f9-2f94ecc0bfda">
 
 
-## Containerizing the Rust Actix Web Service
-1. Create a new file called `Dockerfile` in the root of the project directory. Add the following code to the `Dockerfile`:
-```Dockerfile
+## Containerizing the Rust Actix Web Service using Docker
+
+### Prerequisites
+Install Docker on your local machine. You can find the installation instructions [here](https://docs.docker.com/desktop/install/mac-install/) for Mac users. This is really important because there could be compatibility issues with Docker and your operating system and/or your hardware. 
+
+1. Create a new file called `Dockerfile` in the root of the project directory. Click [here]() to see the contents of the `Dockerfile`.
+2. Open a terminal in the directory containing your Dockerfile.Run 
+```
+docker build -t <USERNAME>/your-image-name . 
+```
+**Note:** KEEP the period at the end of the command. This tells Docker to look for the Dockerfile in the current directory.
+[Replace your-image-name with a suitable name for your Docker image.]
+3. Run your Docker container locally using the following command:
+```
+docker run -p 8080:8080 your-image-name
+```
+4. Check that the application is running by visiting `http://127.0.0.1:8080/` in your web browser. You should see the message "Hello world!" displayed. 
