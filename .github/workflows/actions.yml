@@ -14,19 +14,18 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Setup Rust
-      uses: actions/setup-rust@v1
+      uses: ATiltedTree/setup-rust@v1
       with:
         rust-version: '1.55.0'
-
 
     - name: Build
       run: cargo build --release
 
     - name: Build Docker image
-      run: docker build -t <RustActixLogin> .
+      run: docker build -t RustActixLogin .
 
     - name: Push Docker image to registry
       run: |
-        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username <aaryadesai> --password-stdin
-        docker tag <RustActixLogin> <aaryadesai>/<RustActixLogin>:latest
-        docker push <aaryadesai>/<RustActixLogin>:latest
+        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username aaryadesai --password-stdin
+        docker tag RustActixLogin aaryadesai/RustActixLogin:latest
+        docker push aaryadesai/RustActixLogin:latest
