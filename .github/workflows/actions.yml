@@ -24,8 +24,10 @@ jobs:
     - name: Build Docker image
       run: docker build -t rustactixlogin .
 
+    - name: Login to Docker Hub
+      run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username aaryadesai --password-stdin
+
     - name: Push Docker image to registry
       run: |
-        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username aaryadesai --password-stdin
-        docker tag rustactixlogin aaryadesai/rustactixlogin:latest
-        docker push aaryadesai/rustactixlogin:latest
+        docker tag my-rust-actix-login-image aaryadesai/RustActixLogin:latest
+        docker push aaryadesai/RustActixLogin:latest
