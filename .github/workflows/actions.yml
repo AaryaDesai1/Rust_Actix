@@ -1,0 +1,34 @@
+name: Rust Microservice CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Rust
+      uses: actions/setup-rust@v2
+      with:
+        rust-version: '1.55.0'
+
+    - name: Build
+      run: cargo build --release
+
+    - name: Test
+      run: cargo test
+
+    - name: Build Docker image
+      run: docker build -t <YOUR_IMAGE_NAME> .
+
+    - name: Push Docker image to registry
+      run: |
+        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username <YOUR_DOCKERHUB_USERNAME> --password-stdin
+        docker tag <YOUR_IMAGE_NAME> <YOUR_DOCKERHUB_USERNAME>/<YOUR_IMAGE_NAME>:latest
+        docker push <YOUR_DOCKERHUB_USERNAME>/<YOUR_IMAGE_NAME>:latest
