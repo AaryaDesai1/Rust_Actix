@@ -22,10 +22,10 @@ jobs:
       run: cargo build --release
 
     - name: Build Docker image
-      run: docker build -t RustActixLogin .
+      run: docker build -t rustactixlogin .
 
     - name: Push Docker image to registry
       run: |
         echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username aaryadesai --password-stdin
-        docker tag RustActixLogin aaryadesai/RustActixLogin:latest
-        docker push aaryadesai/RustActixLogin:latest
+        docker tag rustactixlogin aaryadesai/rustactixlogin:latest
+        docker push aaryadesai/rustactixlogin:latest
