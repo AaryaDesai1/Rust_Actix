@@ -25,10 +25,10 @@ jobs:
       run: cargo test
 
     - name: Build Docker image
-      run: docker build -t <YOUR_IMAGE_NAME> .
+      run: docker build -t <RustActixLogin> .
 
     - name: Push Docker image to registry
       run: |
-        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username <YOUR_DOCKERHUB_USERNAME> --password-stdin
-        docker tag <YOUR_IMAGE_NAME> <YOUR_DOCKERHUB_USERNAME>/<YOUR_IMAGE_NAME>:latest
-        docker push <YOUR_DOCKERHUB_USERNAME>/<YOUR_IMAGE_NAME>:latest
+        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username <aaryadesai> --password-stdin
+        docker tag <RustActixLogin> <aaryadesai>/<RustActixLogin>:latest
+        docker push <aaryadesai>/<RustActixLogin>:latest
