@@ -29,5 +29,5 @@ jobs:
 
     - name: Push Docker image to registry
       run: |
-        docker tag my-rust-actix-login-image aaryadesai/RustActixLogin:latest
-        docker push aaryadesai/RustActixLogin:latest
+        docker tag my-rust-actix-login-image aaryadesai/rustactixlogin:latest
+        docker push aaryadesai/rustactixlogin:latest
