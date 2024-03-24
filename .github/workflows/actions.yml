@@ -16,7 +16,7 @@ jobs:
     - name: Setup Rust
       uses: ATiltedTree/setup-rust@v1
       with:
-        rust-version: '1.55.0'
+        rust-version: '1.77.0'
 
     - name: Build
       run: cargo build --release
