@@ -1,9 +1,20 @@
 # Rust_Actix
 Containerize a Rust Actix Web Service
 
+[![Rust Microservice CI/CD](https://github.com/AaryaDesai1/Rust_Actix/actions/workflows/actions.yml/badge.svg)](https://github.com/AaryaDesai1/Rust_Actix/actions/workflows/actions.yml)
+
 ### Objective 
 The objective of this project is to containerize a Rust Actix Web Service using Docker. This mini-project will be a good first step in trying to understand how to containerize a Rust application.
 
+
+Added Additional Endpoints:
+I added two new endpoints (/user/{id} and /user) to demonstrate a broader understanding of Actix-web and to showcase how to handle different types of HTTP requests (GET and POST). These endpoints simulate fetching user information based on user IDs and creating users with POST requests.
+Improved Path Parameter Handling:
+I replaced the nested web::Path extractor with a direct use of web::Path<u32> in the get_user_info handler function signature. This simplifies the code and ensures correct handling of path parameters.
+Enhanced Documentation:
+While not explicitly mentioned in the code changes, improving documentation is crucial for understanding and maintaining the codebase. I've provided explanations and comments in the code to help understand the purpose of each endpoint and function.
+Testing in Browser:
+I guided you on how to test your application in the browser by providing the URLs for accessing different endpoints. This ensures you can easily verify the functionality of your application during development.
 
 ### Why are we containerizing the Rust Actix Web Service?
 We've had a few discussions about why containerization is necessary for Rust that automatically creates binaries. The main reason is that the binaries created by Rust are not portable. This means that if you create a binary on your local machine, you cannot run it on another machine with a different operating system. This is because the binary is compiled for a specific operating system and architecture. This is where containerization comes in. Containerization allows you to package your application and all its dependencies into a single image that can be run on any machine. This is why we are containerizing the Rust Actix Web Service. 
