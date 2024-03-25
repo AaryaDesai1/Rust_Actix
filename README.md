@@ -1,5 +1,5 @@
 # Rust_Actix
-Containerize a Rust Actix Web Service
+Containerize a Rust Actix Web Service using Docker
 
 [![Rust Microservice CI/CD](https://github.com/AaryaDesai1/Rust_Actix/actions/workflows/actions.yml/badge.svg)](https://github.com/AaryaDesai1/Rust_Actix/actions/workflows/actions.yml)
 
